@@ -1,12 +1,82 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+<style>
+body {
+  background-color: lightblue;
+}
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 50px;
+}
+p {
+background-color: lightblue;
+  font-family: verdana;
+  font-size: 20px;
+  text-align: center;
+}
+div {
+  text-align: center;
+  font-size: 30px;
+  color: black;
+}
+  
+footer {
+  font-family: verdana;
+  font-size: 50px;
+  text-align: center;
+  color: red;
+}
+/*Iframe { 
+            border: 3px dotted; 
+            width: 300px; 
+            height: 100px; 
+            font-family: verdana;
+            font-size: 200px;
+            text-align: center;
+} 
+*/
+</style>
 </head>
 
-<body>
-     <iframe src="https://calendar.google.com/calendar/embed?height=800&wkst=1&ctz=Pacific%2FAuckland&bgcolor=%23ffffff&showNav=0&showPrint=0&showTabs=0&showTz=0&src=MTIyY2h1cmNoaWxsZHJpdmVAZ21haWwuY29t&src=ZW4tZ2IubmV3X3plYWxhbmQjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%230B8043" style="border:solid 1px #777" width="1200" height="800" frameborder="0" scrolling="no"></iframe>
-     <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Pacific%2FAuckland&bgcolor=%23ffffff&showPrint=0&showTabs=0&showNav=0&mode=DAY&showTz=0&src=MTIyY2h1cmNoaWxsZHJpdmVAZ21haWwuY29t&src=ZW4tZ2IubmV3X3plYWxhbmQjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%230B8043" style="border:solid 1px #777" width="400" height="600" frameborder="0" scrolling="no"></iframe>
-</body>
+<body onload="startTime()">
 
+<h1>Welcome to Crofton Downs Retirement Village</h1>
+
+<div id="txt"></div>
+<br><br>
+
+<script>
+function startTime() {
+  const today = new Date();
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  let d = today.getDate();
+  let h = today.getHours();
+  let M = months[today.getMonth()];
+  let y = today.getFullYear();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  d + " " + M + " " + y + " " + h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+
+
+<div>
+<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Pacific%2FAuckland&bgcolor=%23ffffff&showPrint=0&showTabs=0&showNav=0&mode=AGENDA&showTz=0&src=MTIyY2h1cmNoaWxsZHJpdmVAZ21haWwuY29t&src=ZW4tZ2IubmV3X3plYWxhbmQjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%230B8043" style="border:solid 1px #777" width="400" height="600" frameborder="0" scrolling="no"></iframe>
+
+<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Pacific%2FAuckland&bgcolor=%23ffffff&showPrint=0&showTabs=0&showNav=0&mode=AGENDA&showTz=0&src=MTIyY2h1cmNoaWxsZHJpdmVAZ21haWwuY29t&src=ZW4tZ2IubmV3X3plYWxhbmQjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%230B8043" style="border:solid 1px #777" width="400" height="600" frameborder="0" scrolling="no"></iframe>
+</div><br><br>
+
+<footer>This is an EMERGENCY notice footer</footer>
+
+</body>
 </html>
