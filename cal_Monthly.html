@@ -122,20 +122,13 @@ function startTime() {
   let h = today.getHours();
   let M = months[today.getMonth()];
   let y = today.getFullYear();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('txt').innerHTML = day + " " + d + " " + M + " " + y + " " + h + ":" + m + ":" + s;
+  let am_pm = today.toLocaleTimeString(); // 12:48:20 PM
+  document.getElementById('txt').innerHTML = day + " " + d + " " + M + " " + y + " " + am_pm;
   
   setTimeout(startTime, 1000);
 }
 
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-</script>
+</script>>
 
 <div>
 
